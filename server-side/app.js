@@ -2,6 +2,7 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require('cors');
 
 //rotutes
 const { connectDB } = require("./dbConnections/db");
@@ -15,6 +16,7 @@ const app = express();
 app.use(express.json());
 
 const port = process.env.PORT || 3000;
+app.use(cors());
 
 const serverAndDatabaseConnection = async () => {
   try {
