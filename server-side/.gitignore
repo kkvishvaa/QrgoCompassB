@@ -1,0 +1,3 @@
+node_modules/
+server-side/public/qrcodes/
+.env
