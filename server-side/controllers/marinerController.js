@@ -7,9 +7,9 @@ const jwt = require("jsonwebtoken");
 // MARINER SIGNUP API
 exports.marinerSignup = async (req, res) => {
   try {
-    const { name, email, password, role } = req.body;
+    const { username, email, password, role } = req.body;
 
-    if (!name || !email || !password) {
+    if (!username || !email || !password) {
       return res
         .status(400)
         .json({ message: "Name, email, and password are required!" });
@@ -25,7 +25,7 @@ exports.marinerSignup = async (req, res) => {
       parseInt(process.env.SALTROUNDS)
     );
     const newMariner = new Mariner({
-      name,
+      username,
       email,
       password: hashedPassword,
       role: role || "mariner",
